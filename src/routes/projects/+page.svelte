@@ -1,8 +1,11 @@
 <script lang="ts">
+    import { heading, subheading } from "../../../.data/projects";
     export let data;
-    let { projects, tags } = data; 
+    let { projects, tags } = data;
+
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
+    
     import checked from "$lib/img/checked.svg";
     import unchecked from "$lib/img/unchecked.svg";
 
@@ -27,9 +30,11 @@
 <div class="w-full h-full flex flex-col">
     <div id="top" class="pt-36 pb-12 bg-gray-100 border-b border-gray-300">
         <div class="max-w-screen-lg mx-auto p-5">
-            <h1 class="text-4xl font-bold">Projects</h1>
+            <h1 class="text-4xl font-bold">
+                {heading}
+            </h1>
             <p class="py-4">
-                Recent proffesional and personal projects I have worked on.
+                {subheading}
             </p>
         </div>
     </div>
@@ -64,8 +69,7 @@
                                 {#each projects as project}
                                     <li class="white border border-gray-200 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <a href={`/projects/${project.slug}`} class="flex flex-col p-5 h-full">
-                                            <img src={project.image} class="w-full rounded" alt=""/>
-                                            <div class="text-lg font-bold mt-4">
+                                            <div class="text-lg font-bold">
                                                 {project.title}
                                             </div>
                                             <div class="text-gray-500 text-sm mb-4">

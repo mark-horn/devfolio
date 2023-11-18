@@ -12,7 +12,7 @@
 </script>
 
 <div class="w-full h-full flex flex-col">
-    <div id="top" class="pt-32 pb-12 bg-gray-100 border-b border-gray-300">
+    <div id="top" class="pt-36 pb-12 bg-gray-100 border-b border-gray-300">
         <div class="max-w-screen-md mx-auto p-5">
             <a href="/projects" class="text-sm opacity-50 hover:opacity-100 transition duration-300 ease-in-out flex w-fit">
                 <img src={back} class="mr-1" alt=""/>Back to Projects

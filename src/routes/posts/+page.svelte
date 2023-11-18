@@ -1,8 +1,11 @@
 <script lang="ts">
+    import { heading, subheading } from "../../../.data/posts";
     export let data;
     let { posts, tags } = data; 
+    
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
+    
     import checked from "$lib/img/checked.svg";
     import unchecked from "$lib/img/unchecked.svg";
 
@@ -27,9 +30,11 @@
 <div class="w-full h-full flex flex-col">
     <div id="top" class="pt-36 pb-12 bg-gray-100 border-b border-gray-300">
         <div class="max-w-screen-lg mx-auto p-5">
-            <h1 class="text-4xl font-bold">Blog</h1>
+            <h1 class="text-4xl font-bold">
+                {heading}
+            </h1>
             <p class="py-4">
-                Personal and technical writing on topics I am passionate about.
+                {subheading}
             </p>
         </div>
     </div>

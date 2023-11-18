@@ -69,3 +69,11 @@
     width: 100%;
     border-radius: 10px;
 }
+
+.markdown a {
+    color: #2563EB;
+}
+
+.markdown a:hover {
+    text-decoration: underline;
+}

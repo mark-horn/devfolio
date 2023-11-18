@@ -1,5 +1,5 @@
 export const avatar: string = 
-"/images/home/avatar.png";
+"/images/home/avatar.png"; // relative to static/
 
 export const name: string = 
 "John Doe";

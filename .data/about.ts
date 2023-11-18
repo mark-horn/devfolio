@@ -1,5 +1,6 @@
+export const heading: string = "About";
 
-export const heading: string = "A little bit about me, my skills and experience.";
+export const subheading: string = "A little bit about me, my skills and experience.";
 
 export const image: string = "/images/about/photo.png"; // relative to static/
 

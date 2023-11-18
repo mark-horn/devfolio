@@ -1,11 +1,29 @@
 <script>
-    import emailIcon from "$lib/img/email.svg";
-    import { onMount } from "svelte";
-    import { fly } from "svelte/transition";
     import { heading, subheading, social, emails } from "../../../.data/contact";
+    
+    import { onDestroy, onMount } from "svelte";
+    import { fly } from "svelte/transition";
+    
+    import emailIcon from "$lib/img/email.svg";
     
     let mounted = false;
     onMount(() => { mounted = true });
+
+    function onTextAreaInput() {
+        const textArea = document.getElementById("message");
+        if(textArea) {
+            textArea.style.height = "auto";
+            textArea.style.height = (textArea.scrollHeight + 2) + "px";
+        }
+    }
+
+    function resetTextArea() {
+        const textArea = document.getElementById("message");
+        if(textArea) {
+            textArea.style.height = "auto";
+            textArea.style.height = (textArea.scrollHeight + 2) + "px";
+        }
+    }
 </script>
 
 <div class="w-full h-full flex flex-col">
@@ -19,9 +37,9 @@
             </p>
         </div>
     </div>
-    {#if mounted}
+    {#key mounted}
     <div id="content" class="py-12"
-        transition:fly={{
+        in:fly={{
             y: 100,
             delay: 1000,
         }}
@@ -31,23 +49,22 @@
                 <form class="flex flex-col gap-5">
                     <div class="flex flex-col gap-1">
                         <label for="name">Name</label>
-                        <input id="name" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="John Doe" required/> 
-                        <div class="text-sm">Ok Error</div>
+                        <input id="name" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="John Doe" required/>
                     </div>
                     <div class="flex flex-col gap-1">
                         <label for="email">Email</label>
-                        <input id="email" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="johndoe@acme.com" required/> 
-                        <div class="text-sm">Ok Error</div>
+                        <input id="email" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="johndoe@acme.com" required/>
                     </div>
                     <div class="flex flex-col gap-1">
                         <label for="subject">Subject</label>
-                        <input id="subject" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="Enter a subject" required/>    
-                        <div class="text-sm">Ok Error</div>
+                        <input id="subject" type="text" class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" placeholder="Enter a subject" required/>
                     </div>
                     <div class="flex flex-col gap-1">
                         <label for="message">Message</label>
-                        <textarea id="message" class="w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1 resize-none" placeholder="Enter a message" required/>    
-                        <div class="text-sm">Ok Error</div>
+                        <textarea 
+                        id="message" 
+                        on:input={onTextAreaInput}
+                        class="w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1 resize-none" placeholder="Enter a message" required/>
                     </div>
                     <div>
                         <button class="bg-black text-white rounded py-1 px-4 hover:opacity-75">
@@ -88,5 +105,5 @@
             </div>
         </div>
     </div>
-    {/if}
+    {/key}
 </div>

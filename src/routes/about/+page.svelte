@@ -1,7 +1,10 @@
 <script>
+    import { heading, subheading, image, paragraphs, skills, experience, stack } 
+    from "../../../.data/about";
+    
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
-    import { heading, image, paragraphs, skills, experience, stack } from "../../../.data/about";
+    
     import arrow from "$lib/img/arrow.svg";
 
     let mounted = false;
@@ -14,10 +17,10 @@
     <div id="top" class="pt-36 pb-12 bg-gray-100 border-b border-gray-300">
         <div class="max-w-screen-md mx-auto p-5">
             <h1 class="text-4xl font-bold">
-                About
+                {heading}
             </h1>
             <p class="py-4">
-                {heading}
+                {subheading}
             </p>
         </div>
     </div>

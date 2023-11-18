@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "node scripts/copyImages.js && vite dev --host 0.0.0.0",
+		"dev": "vite dev --host 0.0.0.0",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -27,11 +27,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/fira-mono": "^5.0.8",
 		"@fontsource/inter": "^5.0.15",
-		"fs-extra": "^11.1.1",
-		"jsdom": "^22.1.0",
+		"@fontsource/fira-mono": "^5.0.8",
 		"mdsvex": "^0.11.0",
-		"mdsvex-relative-images": "^1.0.3"
+		"just-camel-case": "^6.2.0",
+		"unist-util-visit": "^5.0.0"
 	}
 }
