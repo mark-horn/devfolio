@@ -1,0 +1,71 @@
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    font-weight: bold;
+}
+
+.markdown p {
+    font-size: 1.125rem;
+    margin: 1em 0;
+}
+
+.markdown h1 {
+    font-size: 2.25rem;
+    margin: 0.67em 0;
+}
+
+.markdown h2 {
+    font-size: 1.875rem;
+    margin: 0.83em 0;
+}
+
+.markdown h3 {
+    font-size: 1.5rem;
+    margin: 1em 0;
+}
+
+.markdown h4 {
+    font-size: 1.25rem;
+    margin: 1.33em 0;
+}
+
+.markdown h5 {
+    font-size: 1.125rem;
+    margin: 1.67em 0;
+}
+
+.markdown h6 {
+    font-size: 1rem;
+    margin: 2.33em 0;
+}
+
+.markdown ol {
+    gap: 1rem;
+    margin-left: 3rem;
+    list-style-type: decimal;
+}
+
+.markdown ul {
+    margin-left: 3rem;
+    list-style-type: disc;
+}
+
+.markdown li {
+    margin: 1rem 0;
+}
+
+.markdown code:not(pre code) {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.markdown img {
+    width: 100%;
+    border-radius: 10px;
+}
