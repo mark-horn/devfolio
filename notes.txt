@@ -1,7 +1,14 @@
 
 
 columns on project and post slug pages
+
 markdown css
+
 contact form / resend
 .env 
+
+
 project images?
+import glob from static and return img if found
+convert project grid to mosaic grid, with each column being it's own grid
+this will account for projects with no images and differing heights

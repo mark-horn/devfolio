@@ -82,7 +82,7 @@
                     <ul class="flex flex-wrap gap-2">
                         {#each social as item}
                             <li class="flex justify-center items-center h-8 w-8 p-1 opacity-200 hover:opacity-60 transition duration-300 bg-black rounded">
-                                <a href={item.url}>
+                                <a href={item.url} target="_blank">
                                     <img src={item.img} width={32} height={32} alt=""/>
                                 </a>
                             </li>
