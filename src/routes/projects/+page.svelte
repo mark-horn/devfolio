@@ -65,10 +65,11 @@
                             SHOWING {projects.length} of {data.projects.length} projects
                         </h1>
                         <ul class="flex flex-col gap-4 mt-2">
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                            <div class="grid grid-cols-1 gap-5">
                                 {#each projects as project}
                                     <li class="white border border-gray-200 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <a href={`/projects/${project.slug}`} class="flex flex-col p-5 h-full">
+                                            <img src=".data/projects/expensify/test.jpg" alt=""/>
                                             <div class="text-lg font-bold">
                                                 {project.title}
                                             </div>

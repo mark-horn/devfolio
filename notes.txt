@@ -1,14 +1,13 @@
 
+project images?
+import glob from static and return img if found
 
-columns on project and post slug pages
+columns on project and post slug pages, with aside/article
 
 markdown css
+
+create an article on markdown format
 
 contact form / resend
 .env 
 
-
-project images?
-import glob from static and return img if found
-convert project grid to mosaic grid, with each column being it's own grid
-this will account for projects with no images and differing heights
