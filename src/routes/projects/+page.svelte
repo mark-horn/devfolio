@@ -69,7 +69,7 @@
                                 {#each projects as project}
                                     <li class="white border border-gray-200 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <a href={`/projects/${project.slug}`} class="flex flex-col p-5 h-full">
-                                            <img src=".data/projects/expensify/test.jpg" alt=""/>
+                                            <img src={project.image} alt=""/>
                                             <div class="text-lg font-bold">
                                                 {project.title}
                                             </div>

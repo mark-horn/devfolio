@@ -18,7 +18,14 @@ interface Project {
     liveURL: string;
     githubURL: string;
     description: string;
+    //
+    image: string;
 }
+
+//
+let img = await import("/.data/projects/expensify/test.jpg");
+console.log(img.default)
+//
 
 async function getAllProjects() {
     const markdownFiles = import.meta.glob('/.data/projects/**/project.md');
@@ -42,6 +49,8 @@ async function getAllProjects() {
                     year: 'numeric', month: 'short', day: 'numeric' 
                 }
             );
+
+            project.image = img.default
 
             return project;
         })
