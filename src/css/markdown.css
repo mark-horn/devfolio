@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
 .markdown h1,
 .markdown h2,
 .markdown h3,
@@ -5,64 +10,124 @@
 .markdown h5,
 .markdown h6 {
     font-weight: bold;
+    margin: 2em 0 .5em 0;
 }
 
-.markdown p {
-    font-size: 1.125rem;
-    margin: 1em 0;
+.markdown {
+    line-height: 1.5;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #333;
 }
 
+/* Headings */
 .markdown h1 {
-    font-size: 2.25rem;
-    margin: 0.67em 0;
+    font-size: 2.25em;
 }
 
 .markdown h2 {
-    font-size: 1.875rem;
-    margin: 0.83em 0;
+    font-size: 1.875em;
 }
 
 .markdown h3 {
-    font-size: 1.5rem;
-    margin: 1em 0;
+    font-size: 1.5em;
 }
 
 .markdown h4 {
-    font-size: 1.25rem;
-    margin: 1.33em 0;
+    font-size: 1.25em;
 }
 
 .markdown h5 {
-    font-size: 1.125rem;
-    margin: 1.67em 0;
+    font-size: 1.125em;
 }
 
 .markdown h6 {
-    font-size: 1rem;
-    margin: 2.33em 0;
+    font-size: 1em;
+}
+
+/* Paragraphs */
+.markdown p {
+    margin-bottom: 1em;
+}
+
+/* Lists */
+.markdown ul,
+.markdown ol {
+    margin-bottom: 1em;
+    margin-left: 2em;
 }
 
 .markdown ol {
-    gap: 1rem;
-    margin-left: 3rem;
     list-style-type: decimal;
 }
 
 .markdown ul {
-    margin-left: 3rem;
     list-style-type: disc;
 }
 
 .markdown li {
-    margin: 1rem 0;
+    margin-bottom: 0.5em;
 }
 
-.markdown code:not(pre code) {
+/* Links */
+.markdown a {
+    color: #0366d6;
+}
+
+.markdown a:hover {
+    text-decoration: underline;
+}
+
+/* Blockquotes */
+.markdown blockquote {
+    margin: 0;
+    padding: 1em;
+    border-left: 5px solid #ccc;
+    color: #666;
     background-color: #EEE;
-    border: 1px solid #DDD;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
+    border-radius: 6px;
+}
+
+/* Code blocks and inline code */
+.markdown pre,
+.markdown code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #EEE;
+    border-radius: 3px;
+}
+
+/* Tables */
+.markdown table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.markdown th,
+.markdown td {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+}
+
+.markdown th {
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    background-color: #DDD;
+}
+
+/* Horizontal Rule */
+.markdown hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+}
+
+/* Apply alternating row colors */
+.markdown tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.markdown tr:nth-child(odd) {
+    background-color: #fff;
 }
 
 .markdown img {
@@ -70,10 +135,14 @@
     border-radius: 10px;
 }
 
-.markdown a {
-    color: #2563EB;
+.markdown > *:first-child {
+    margin-top: 0;
 }
 
-.markdown a:hover {
-    text-decoration: underline;
+
+.markdown pre.none,
+.markdown code.none {
+    font-size: 1em;
+    font-weight: normal;
+    background-color: transparent;
 }

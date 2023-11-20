@@ -1,7 +1,7 @@
 ---
 date: 11/15/2023
 title: How to publish new posts
-description: This article will demonstrate how to add a new blog post.
+description: This article will demonstrate how to publish a new blog post.
 tags: [ Info ]
 ---
 

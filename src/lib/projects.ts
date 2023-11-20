@@ -1,11 +1,21 @@
 import test from 'node:test';
 import { basename, dirname } from 'path';
 
-interface ImageFile {
-    default: string;
-    symbol: { 
-        module: {}
-    }
+interface Project {
+    slug: string;
+    body: string;
+    date: string;
+    tags: string[];
+    image: string;
+    title: string;
+    liveURL: string;
+    githubURL: string;
+    description: string;
+}
+
+interface Image {
+    slug: string;
+    path: string;
 }
 
 interface MarkdownFile {
@@ -17,84 +27,76 @@ interface MarkdownFile {
     }
 }
 
-interface Project {
-    slug: string;
-    body: string;
-    date: string;
-    tags: string[];
-    title: string;
-    liveURL: string;
-    githubURL: string;
-    description: string;
+interface ImageFile {
+    default: string;
 }
 
-async function getAllImages() {
-    const objects = import.meta.glob('/.data/projects/**/project.*');
-    const entries = Object.entries(objects);
-    const supportedImages = ["jpeg","jpg","png","gif"]
+const supportedImages = ["jpeg","jpg","png","gif"];
+let allImages: Image[] = [];
+let allProjects: Project[] = [];
+let allTags: Set<string> = new Set<string>();
 
-    let allImages: { slug: string; path: string; }[] = [];
+async function importAllProjectFiles() {
+    const imports = import.meta.glob('/.data/projects/**/project.*');
+    const files = Object.entries(imports);
 
-    for (const entry of entries) {
-        const [filepath,module] = entry;
-        const [d,p,slug,filename] = filepath.split("/");
-        const ext = filename.split(".").pop();
-
-        if (slug && filename && ext && supportedImages.includes(ext)) {
-            const img = await module() as ImageFile;
-            allImages.push({ slug: slug, path: img.default })
-        }
-    }
-
-    return allImages;
-}
-
-
-
-async function getAllProjects() {
-    const markdownFiles = import.meta.glob('/.data/projects/**/project.md');
-	const files = Object.entries(markdownFiles);
-
-	return await Promise.all(
+    const x = await Promise.all(
 		files.map(async ([filepath, module]) => {
+            const ext = filepath.split('.').pop();
             const slug = basename(dirname(filepath));
-			const file = await module() as MarkdownFile;
-            const body = file.default.render().html;
-            const metadata = file.metadata;
+            
+            if (ext === 'md') {
+                const file = await module() as MarkdownFile;
+                const body = file.default.render().html;
+                const metadata = file.metadata;
 
-            let project = { 
-                slug,
-                body,
-                ...metadata,
-            } as Project;
+                let project = { 
+                    slug,
+                    body,
+                    ...metadata,
+                } as Project;
 
-            project.date = new Date(project.date).toLocaleDateString(
-                'en-US', { 
-                    year: 'numeric', month: 'short', day: 'numeric' 
+                if (!project.tags) 
+                    project.tags = [];
+                
+                allProjects.push(project);
+
+            } else if (ext && supportedImages.includes(ext)) {
+                const file = await module() as ImageFile;
+                const path = file.default;
+
+                let image = {
+                    slug,
+                    path
                 }
-            );
-
-            return project;
+                allImages.push(image);
+            }
         })
     )
 }
 
-const allProjects = await getAllProjects();
-const allImages = await getAllImages();
+await importAllProjectFiles();
+
+allProjects.forEach(project => {
+    let image = allImages.find(x => x.slug === project.slug);
+    if (image) project.image = image.path;
+
+    for (const tag of project.tags) {
+        allTags.add(tag);
+    }
+    
+    project.date = new Date(project.date).toLocaleDateString(
+        'en-US', { 
+            year: 'numeric', month: 'short', day: 'numeric' 
+        }
+    )
+})
 
 const sortedProjects = allProjects.sort((a,b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
 })
 
-let uniqueTags: Set<string> = new Set<string>();
-
-for (const project of sortedProjects) {
-    for (const tag of project.tags) {
-        uniqueTags.add(tag);
-    }   
-}
-const sortedTags = [...uniqueTags].sort();
+const sortedTags = [...allTags].sort();
 
 export const projects = sortedProjects;
 export const tags = sortedTags;
-export const images = allImages;

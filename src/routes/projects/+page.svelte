@@ -1,7 +1,7 @@
 <script lang="ts">
     import { heading, subheading } from "../../../.data/projects";
     export let data;
-    let { projects, tags, images } = data;
+    let { projects, tags } = data;
 
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
@@ -24,11 +24,6 @@
         projects = data.projects.filter((project) => {
             return [...filters].every((tag) => project.tags.includes(tag));
         });
-    }
-
-    function getImage(slug: string) {
-        let img = images.find(x => x.slug === slug);
-        return img ? img.path : undefined;
     }
 </script>
 
@@ -74,8 +69,8 @@
                                 {#each projects as project}
                                     <li class="white border border-gray-200 rounded-lg hover:bg-gray-100 transition duration-300 ease-in-out">
                                         <a href={`/projects/${project.slug}`} class="flex flex-col p-5 h-full">
-                                            {#if getImage(project.slug)}
-                                                <img src={getImage(project.slug)} alt=""/>
+                                            {#if project.image}
+                                                <img src={project.image} alt="" class="rounded pb-4 "/>
                                             {/if}
                                             <div class="text-lg font-bold">
                                                 {project.title}

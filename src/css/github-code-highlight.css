@@ -34,7 +34,7 @@
 	 padding: 1em;
 	 margin: 0.5em 0;
 	 overflow: auto;
-	 border-radius: 0.75em;
+	 border-radius: 0.5em;
  }
  
  /* Inline code */
@@ -42,7 +42,7 @@
 	 font-size: 1rem;
 	 background-color: var(--color-bg-inline-code-block);
 	 padding: 0.2em 0.3em;
-	 border-radius: 0.3em;
+	 border-radius: 0.33em;
 	 white-space: normal;
  }
  
