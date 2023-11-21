@@ -158,6 +158,9 @@ renders:
 
 ### Wrapping Up
 
+Just as a reminder, remember that markdown requires empty lines (spaces) after some elements to render
+properly. Tags like headings(#) require a space between the decorator and the content. Emphasis tags do not require a space. If you have something that doesn't render correctly, check your syntax.
+
 This was meant to be just a quick guide to markdown. You can visit the following resources to explore
 the basic syntax in more depth, or check out the more extended syntax.
 

@@ -27,10 +27,11 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/inter": "^5.0.15",
 		"@fontsource/fira-mono": "^5.0.8",
-		"mdsvex": "^0.11.0",
+		"@fontsource/inter": "^5.0.15",
 		"just-camel-case": "^6.2.0",
+		"mdsvex": "^0.11.0",
+		"resend": "^2.0.0",
 		"unist-util-visit": "^5.0.0"
 	}
 }
