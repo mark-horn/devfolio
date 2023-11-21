@@ -90,13 +90,15 @@
             })
 
             if (response.ok) {
-                const result = await response.json();
-                form = initializeForm();
-                resetTextArea()
+                const results = await response.json();
                 isSuccessful = true;
+                isServerError = false;
+                serverMessage = results;
+                resetTextArea();
+                form = initializeForm();
             } else {
                 const errors = await response.json();
-                console.log('errors',errors);
+                isSuccessful = false;
                 isServerError = true;
                 serverMessage = errors;
             }
@@ -130,12 +132,12 @@
                 <form on:submit={onSubmit} class="flex flex-col gap-5">
                     {#if isSuccessful}
                         <div class="bg-green-200 text-green-700 border-green-400 border rounded p-5 mb-4">
-                            Your email was sent successfully.
+                            {serverMessage}
                         </div>
                     {/if}
                     {#if isServerError}
                         <div class="bg-red-200 text-red-700 border-red-400 border rounded p-5 mb-4">
-                            An error occured: {serverMessage}
+                            {serverMessage}
                         </div>
                     {/if}
                     <div class="flex flex-col gap-1">
