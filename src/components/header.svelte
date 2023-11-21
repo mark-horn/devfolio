@@ -56,15 +56,12 @@
             {/if}
         </nav>
 
-        <div class="absolute top-1/2 -translate-y-1/2 right-0 mr-5">
-            <div class="{$isDrawerOpen ? 'hidden' : 'hidden md:flex'}">
-                <a href="/resume.pdf" download class="bg-black text-white rounded px-2 py-1 text-sm hover:bg-slate-600 transition duration-300 ease-in-out">
-                    Resume
-                </a>
-            </div>
-            
+        <div class="absolute top-1/2 -translate-y-1/2 right-0 mr-5 flex">
+            <a href="/resume.pdf" download class="bg-black text-white rounded h-8 px-2 py-1 text-sm hover:bg-slate-600 transition duration-300 ease-in-out flex items-center">
+                Resume
+            </a>
             <div class="{$isDrawerOpen ? 'flex' : 'flex md:hidden'}">
-                <button on:click={toggleDrawer} class="rounded p-2 border border-gray-300 hover:bg-gray-200">
+                <button on:click={toggleDrawer} class="rounded p-2 border border-gray-300 hover:bg-gray-200 ml-2">
                     <img src={$isDrawerOpen ? drawerClose : drawerOpen} height={16} width={16} alt=""/>
                 </button>
             </div>
