@@ -2,7 +2,6 @@
     export let data;
     let { project } = data;
     import "../../../css/markdown.css";
-    import linkIcon from "$lib/img/link.svg";
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
     import { isDarkMode } from "$lib/store";
