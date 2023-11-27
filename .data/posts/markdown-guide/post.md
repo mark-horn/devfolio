@@ -108,6 +108,8 @@ With emphasis:
 
 #### Images
 
+<br/>
+
 Relative:
 ```markdown
 ![Minion](minion.jpg)
@@ -115,6 +117,7 @@ Relative:
 <img alt="Minion" src="minion.jpg" style="width:150px">
 
 External:
+
 ```markdown
 ![Minion](https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png)
 ```

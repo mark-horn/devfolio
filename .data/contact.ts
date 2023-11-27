@@ -15,11 +15,17 @@ export const emails: Email[] = [
 
 export const social: Social[] = [
     {
-        img: "/images/social/linkedin.svg",
+        img: { 
+            dark: "/images/social/linkedin-dark.svg",
+            light: "/images/social/linkedin-light.svg",
+        },
         url: "https://www.linkedin.com/in/some-user-profile"
     },
     {
-        img: "/images/social/github.svg",
+        img: { 
+            dark: "/images/social/github-dark.svg",
+            light: "/images/social/github-light.svg",
+        },
         url: "https://www.github.com/some-user-profile"
     }
 ];
@@ -30,5 +36,8 @@ interface Email {
 
 interface Social {
     url:string;
-    img:string;
+    img: {
+        dark: string;
+        light: string;
+    };
 }

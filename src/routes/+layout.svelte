@@ -72,7 +72,7 @@
 
 <div 
     id="app" 
-    class="fixed top-0 left-0 bottom-0 right-0 bg-black"
+    class="fixed top-0 left-0 bottom-0 right-0  bg-zinc-800"
 >
     {#key data.pathname}
         <main
@@ -88,7 +88,7 @@
             >
                 <Header />
                 <Drawer />
-                <div class="flex-1">
+                <div id="slot" class="flex-1">
                     <slot />
                 </div>
                 {#if data.pathname !== "/"}

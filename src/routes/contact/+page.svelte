@@ -6,11 +6,12 @@
 <script lang="ts">
     import { name } from "../../../.data/site";
     import { heading, subheading, social, emails } from "../../../.data/contact";
-    
+    import { isDarkMode } from "$lib/store";
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
     
-    import emailIcon from "$lib/img/email.svg";
+    import emailDark from "$lib/img/email-dark.svg";
+    import emailLight from "$lib/img/email-light.svg";
     
     let mounted = false;
     onMount(() => { mounted = true });
@@ -111,10 +112,10 @@
 <div class="w-full h-full flex flex-col">
     <div id="top" class="pt-36 pb-12 bg-gray-100 border-b border-gray-300">
         <div class="max-w-screen-lg mx-auto p-5">
-            <h1 class="text-4xl font-bold">
+            <h1 id="heading" class="text-4xl font-bold text-black dark:text-white">
                 {heading}
             </h1>
-            <p class="py-4">
+            <p id="subheading" class="py-4 text-zinc-400">
                 {subheading}
             </p>
         </div>
@@ -127,7 +128,6 @@
         }}
     >
         <div class="max-w-screen-lg mx-auto p-5 ">
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <form on:submit={onSubmit} class="flex flex-col gap-5">
                     {#if isSuccessful}
@@ -141,17 +141,22 @@
                         </div>
                     {/if}
                     <div class="flex flex-col gap-1">
-                        <label for="name">Name</label>
+                        <label for="name" class="text-black dark:text-white">
+                            Name
+                        </label>
                         <input 
                             id="name" 
                             type="text" 
                             autocomplete="name"
+                            spellcheck="false"
                             placeholder="John Doe" 
                             maxlength="100" 
                             disabled={isSubmitting} 
                             bind:value={form.name.value} 
                             on:input={onInput}
-                            class=" w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1"
+                            class=" w-full p-1 border rounded outline-none ring-0 
+                            text-black bg-zinc-100 border-zinc-300 focus:ring-2 focus:ring-zinc-400
+                            dark:text-white dark:bg-zinc-800 dark:border-zinc-700 dark:focus:ring-2 dark:focus:ring-white"
                         />
                         {#if form.name.error}
                             {#if form.name.valid}
@@ -162,17 +167,22 @@
                         {/if}
                     </div>
                     <div class="flex flex-col gap-1">
-                        <label for="email">Email</label>
+                        <label for="email" class="text-black dark:text-white">
+                            Email
+                        </label>
                         <input 
                             id="email" 
                             type="text"
                             autocomplete="email"
+                            spellcheck="false"
                             placeholder="johndoe@acme.com"
                             maxlength="100" 
                             disabled={isSubmitting} 
                             bind:value={form.email.value} 
                             on:input={onInput}
-                            class="w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1" 
+                            class=" w-full p-1 border rounded outline-none ring-0 
+                          text-black bg-zinc-100 border-zinc-300 focus:ring-2 focus:ring-zinc-400
+                            dark:text-white dark:bg-zinc-800 dark:border-zinc-700 dark:focus:ring-2 dark:focus:ring-white"
                         />
                         {#if form.email.error}
                             {#if form.email.valid}
@@ -183,17 +193,22 @@
                         {/if}
                     </div>
                     <div class="flex flex-col gap-1">
-                        <label for="subject">Subject</label>
+                        <label for="subject" class="text-black dark:text-white">
+                            Subject
+                        </label>
                         <input 
                             id="subject" 
                             type="text" 
                             autocomplete="off"
                             placeholder="Enter a subject"
                             maxlength="100" 
+                            spellcheck="false"
                             disabled={isSubmitting} 
                             bind:value={form.subject.value} 
                             on:input={onInput}
-                            class="w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1"
+                            class=" w-full p-1 border rounded outline-none ring-0 
+                          text-black bg-zinc-100 border-zinc-300 focus:ring-2 focus:ring-zinc-400
+                            dark:text-white dark:bg-zinc-800 dark:border-zinc-700 dark:focus:ring-2 dark:focus:ring-white"
                         />
                         {#if form.subject.error}
                             {#if form.subject.valid}
@@ -204,15 +219,20 @@
                         {/if}
                     </div>
                     <div class="flex flex-col gap-1">
-                        <label for="message">Message</label>
+                        <label for="message" class="text-black dark:text-white">
+                            Message
+                        </label>
                         <textarea 
                             id="message"
                             autocomplete="off"
                             placeholder="Enter a message"
+                            spellcheck="false"
                             disabled={isSubmitting} 
                             bind:value={form.message.value} 
                             on:input={onTextAreaInput}
-                            class="w-full border rounded border-gray-300 outline-none focus:border-gray-600 ring-0 ring-gray-300 focus:ring-4 p-1 resize-none" 
+                            class=" w-full p-1 border rounded outline-none ring-0 resize-none
+                            text-black bg-zinc-100 border-zinc-300 focus:ring-2 focus:ring-zinc-400
+                            dark:text-white dark:bg-zinc-800 dark:border-zinc-700 dark:focus:ring-2 dark:focus:ring-white" 
                         />
                         {#if form.message.error}
                             {#if form.message.valid}
@@ -223,35 +243,47 @@
                         {/if}
                     </div>
                     <div>
-                        <button class="bg-black text-white rounded py-1 px-4 hover:opacity-75">
+                        <button class="rounded mt-2 py-1 px-4 hover:opacity-75
+                        bg-black text-white dark:bg-white dark:text-black
+                        ">
                             Send
                         </button>
                     </div>
                 </form>
                 <div class="">
-                    <h1 class="text-2xl font-bold">
+                    <h1 class="text-black dark:text-white text-2xl font-bold">
                         Other ways to contact
                     </h1>
-                    <h1 class="text-1xl font-bold mt-4 mb-2">
+                    <h1 class="text-1xl font-bold my-2 pt-2
+                     text-zinc-600 dark:text-zinc-400 border-t border-t-zinc-200 dark:border-t-zinc-700">
                         Social Media
                     </h1>
                     <ul class="flex flex-wrap gap-2">
                         {#each social as item}
-                            <li class="flex justify-center items-center h-8 w-8 p-1 opacity-200 hover:opacity-60 transition duration-300 bg-black rounded">
+                            <li class="flex justify-center items-center h-8 w-8 p-1 mb-2 rounded
+                                opacity-100 hover:opacity-60
+                                {$isDarkMode ? 'bg-white' : 'bg-black'}"
+                            >
                                 <a href={item.url} target="_blank">
-                                    <img src={item.img} width={32} height={32} alt=""/>
+                                    <img 
+                                        width={32} 
+                                        height={32} 
+                                        alt=""
+                                        src={$isDarkMode ? item.img.dark : item.img.light} 
+                                    />
                                 </a>
                             </li>
                         {/each}
                     </ul>
-                    <h1 class="text-1xl font-bold mt-4 mb-1">
-                        Email
-                    </h1>
+                    <h1 class="text-1xl font-bold mt-2 py-2 
+                    text-zinc-600 dark:text-zinc-400 border-t border-t-zinc-200 dark:border-t-zinc-700">
+                       Direct Email
+                   </h1>
                     <ul>
                         {#each emails as email}
                             <li>
-                                <a href={`mailto:${email.url}`} class="flex text-blue-600 hover:underline">
-                                    <img src={emailIcon} alt="" class="mr-2"/>
+                                <a href={`mailto:${email.url}`} class="flex text-blue-600 hover:underline w-fit">
+                                    <img src={$isDarkMode ? emailDark: emailLight} alt="" class="mr-2"/>
                                     {email.url}
                                 </a>
                             </li>

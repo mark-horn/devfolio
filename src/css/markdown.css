@@ -13,6 +13,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 2em 0 .5em 0;
 }
 
+.dark .markdown h1,
+.dark .markdown h2,
+.dark .markdown h3,
+.dark .markdown h4,
+.dark .markdown h5,
+.dark .markdown h6 {
+    color: white;
+}
+
 .markdown {
     line-height: 1.5;
     font-family: 'Inter', Arial, sans-serif;
@@ -49,11 +58,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1em;
 }
 
+.dark .markdown p {
+    color: #BBB;
+}
+
 /* Lists */
+
 .markdown ul,
 .markdown ol {
-    margin-bottom: 1em;
-    margin-left: 2em;
+    margin: .5rem 2em;
+}
+
+.dark .markdown ul,
+.dark .markdown ol {
+    color: #BBB;
 }
 
 .markdown ol {
@@ -87,11 +105,16 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 6px;
 }
 
+.dark .markdown blockquote {
+    border-left: 5px solid #777;
+    color: #EEE;
+    background-color: #222;
+}
+
 /* Code blocks and inline code */
 .markdown pre,
 .markdown code {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #EEE;
     border-radius: 3px;
 }
 
@@ -104,14 +127,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .markdown th,
 .markdown td {
-    border: 1px solid #ccc;
+    color:black;
+    border: 1px solid #BBB;
+    padding: 6px 12px;
+}
+
+.dark .markdown th,
+.dark .markdown td {
+    color: white;
+    border: 1px solid #333;
     padding: 6px 12px;
 }
 
 .markdown th {
-    border: 1px solid #ddd;
-    padding: 6px 12px;
-    background-color: #DDD;
+    background-color: #CCC;
+}
+
+.dark .markdown th {
+    background-color: #333;
+}
+
+.markdown tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.markdown tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.dark .markdown tr:nth-child(even) {
+    background-color: #444;
+}
+
+.dark .markdown tr:nth-child(odd) {
+    background-color: #666;
 }
 
 /* Horizontal Rule */
@@ -119,15 +168,6 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
     border-top: 1px solid #ccc;
     margin: 1em 0;
-}
-
-/* Apply alternating row colors */
-.markdown tr:nth-child(even) {
-    background-color: #eee;
-}
-
-.markdown tr:nth-child(odd) {
-    background-color: #fff;
 }
 
 .markdown img {
@@ -139,10 +179,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
 }
 
+.markdown p code {
+    padding: .1rem .25rem;
+    background-color: #EEE;
+    transition: 300ms ease all;
+}
 
-.markdown pre.none,
-.markdown code.none {
-    font-size: 1em;
-    font-weight: normal;
-    background-color: transparent;
+.dark .markdown p code {
+    color: white;
+    background-color: #444;
+}
+
+.markdown * {
+    transition: 300ms ease all;
 }

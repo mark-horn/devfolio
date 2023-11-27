@@ -2,7 +2,7 @@ export const avatar: string =
 "/images/home/avatar.png"; // relative to static/
 
 export const name: string = 
-"John Doe";
+"Dev Folio";
 
 export const hello: string = 
 "Hi, my name is " + name;
@@ -11,4 +11,4 @@ export const position: string =
 "Software Engineer";
 
 export const statement: string = 
-`I am motivated by challenging projects with self-guided research and dynamic problem solving.`;
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.`;

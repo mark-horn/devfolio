@@ -1,5 +1,9 @@
 //put your own name
 export const name: string = "devfolio";
 
-//path to devfolio image, relative to static/
-export const brand: string = "/images/brand.svg";
+export const brand: Brand = { dark: "/brand-dark.svg", light: "/brand-light.svg"}
+
+interface Brand {
+    dark: string;
+    light: string;
+}
