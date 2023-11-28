@@ -17,6 +17,10 @@ a {
         @apply transition-all duration-300 ease-in-out
     }
 
+    #top {
+        @apply pb-0
+    }
+
     #home {
         @apply bg-white
     }

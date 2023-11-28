@@ -2,7 +2,7 @@
 title: A quick guide to markdown format
 date: 11/13/2023
 description: Learn or revisit the basics of markdown.
-tags: [ Info ]
+tags: [ Info, Markdown ]
 ---
 
 #### Italic

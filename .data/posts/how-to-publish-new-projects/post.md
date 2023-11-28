@@ -2,7 +2,7 @@
 date: 11/14/2023
 title: How to publish new projects
 description: This article will demonstrate how to publish a new portfolio project.
-tags: [ Info ]
+tags: [ How-To ]
 ---
 
 ### Step-by-step

@@ -2,7 +2,7 @@
 title: Getting started with devfolio
 date: 11/21/2023
 description: Personalize and get devfolio up and running quickly.
-tags: [ Info ]
+tags: [ Getting Started ]
 ---
 
 Devfolio was designed as a starter portfolio / blog for developers just breaking into the field. A place to store thoughts and projects. 
