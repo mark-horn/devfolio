@@ -1,4 +1,10 @@
+<svelte:head>
+    <title>{name} | Projects</title>
+    <meta name="description" content="{name}'s Projects">
+</svelte:head>
+
 <script lang="ts">
+    import { name } from "../../../.data/site";
     import { heading, subheading } from "../../../.data/projects";
     export let data;
     let { projects, tags } = data;

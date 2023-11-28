@@ -1,4 +1,10 @@
+<svelte:head>
+    <title>{name} | Blog</title>
+    <meta name="description" content="{name}'s Blog Posts">
+</svelte:head>
+
 <script lang="ts">
+    import { name } from "../../../.data/site";
     import { heading, subheading } from "../../../.data/posts";
     export let data;
     let { posts, tags } = data; 

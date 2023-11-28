@@ -1,6 +1,12 @@
+<svelte:head>
+    <title>{name} | About</title>
+    <meta name="description" content="About {name}">
+</svelte:head>
+
 <script>
     import { heading, subheading, image, paragraphs, skills, experience, stack } 
     from "../../../.data/about";
+    import { name } from "../../../.data/site";
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
     import { isDarkMode } from "$lib/store";

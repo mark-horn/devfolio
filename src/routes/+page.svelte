@@ -1,5 +1,11 @@
+<svelte:head>
+    <title>{name} | Home</title>
+    <meta name="description" content="The portfolio website of {name}">
+</svelte:head>
+
 <script lang="ts">
     import { onMount } from "svelte";
+    import { name } from "../../.data/site";
     import {avatar, hello, position, statement } from "../../.data/home";
     import { fly, slide, blur, scale, fade } from "svelte/transition";
     import { quadInOut } from "svelte/easing";

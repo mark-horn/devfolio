@@ -1,6 +1,12 @@
+<svelte:head>
+    <title>{name} | {post.title}</title>
+    <meta name="description" content={post.description}>
+</svelte:head>
+
 <script lang="ts">
     export let data;
     let { post } = data; 
+    import { name } from "../../../../.data/site.js";
     import { isDarkMode } from "$lib/store";
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";

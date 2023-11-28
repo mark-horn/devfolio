@@ -1,6 +1,12 @@
+<svelte:head>
+    <title>{name} | {project.title}</title>
+    <meta name="description" content={project.description}>
+</svelte:head>
+
 <script lang="ts">
     export let data;
     let { project } = data;
+    import { name } from "../../../../.data/site";
     import "../../../css/markdown.css";
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";

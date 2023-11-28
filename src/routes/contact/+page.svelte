@@ -1,6 +1,6 @@
 <svelte:head>
     <title>{name} | Contact</title>
-    <meta name="description" content={`How to contact ${name}`}>
+    <meta name="description" content="How to contact {name}">
 </svelte:head>
 
 <script lang="ts">
